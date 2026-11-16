@@ -1,5 +1,5 @@
 import json
-import sys
+import argparse
 
 from main import calculate_control
 
@@ -40,13 +40,16 @@ def run_simulation(scenario_file):
 
 if __name__ == "__main__":
 
-    scenario_file = (
-        sys.argv[1]
-        if len(sys.argv) > 1
-        else "test_scenario_01.json"
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--scenario",
+        default="test_scenario_01.json"
     )
 
-    success = run_simulation(scenario_file)
+    args = parser.parse_args()
+
+    success = run_simulation(args.scenario)
 
     if not success:
-        sys.exit(1)
+        raise SystemExit(1)
