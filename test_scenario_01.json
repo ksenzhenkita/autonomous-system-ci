@@ -1,0 +1,5 @@
+{
+    "target_speed": 10,
+    "measurements": [8, 9, 10],
+    "tolerance": 2
+}
